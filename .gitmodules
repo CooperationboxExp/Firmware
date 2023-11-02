@@ -1,0 +1,3 @@
+[submodule "PlatformIO/platformio-core-installer"]
+	path = PlatformIO/platformio-core-installer
+	url = https://github.com/platformio/platformio-core-installer.git

@@ -1,0 +1,24 @@
+image: python:3.9
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
+  PLATFORMIO_CACHE_DIR: "$CI_PROJECT_DIR/.platformio-cache"
+
+cache:
+  paths:
+    - .pip-cache/
+    - .platformio-cache/
+
+stages:
+  - test
+
+before_script:
+  - "pip install -U platformio"
+
+job:
+  stage: test
+  script: "pio run"
+  artifacts:
+    paths:
+      - .pio/build/**/*.hex
+      - .pio/build/**/*.elf
